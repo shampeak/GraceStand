@@ -39,6 +39,11 @@
             if (empty($make)) {
                 return null;
             }
+            //控制器模型
+
+
+
+            //标准模型
             $ob = \Application\Model::getInstance()->make($make,$parameters);
             if(empty($ob))$ob = \Application\Application::getInstance()->make($make,$parameters);
             if(empty($ob))$ob = \Grace\Server\Server::getInstance('../Application/Config/')->make($make,$parameters);

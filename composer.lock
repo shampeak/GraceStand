@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e5e1bdcc0eae61bfb06324cd72c6b966",
-    "content-hash": "01bb2282df1d515d72d288adcdc10469",
+    "hash": "dfa64b3aa319dc80e8a6b04b7eac7b1d",
+    "content-hash": "c1691c69b186e2fe8b45524260e08059",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -52,15 +52,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shampeak/GraceServer.git",
-                "reference": "7c27e00860d2cb3a3560d4ab12adaffe3e28d455"
+                "reference": "f7360dac41291982df214f1a3968cac1b714693b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shampeak/GraceServer/zipball/7c27e00860d2cb3a3560d4ab12adaffe3e28d455",
-                "reference": "7c27e00860d2cb3a3560d4ab12adaffe3e28d455",
+                "url": "https://api.github.com/repos/shampeak/GraceServer/zipball/f7360dac41291982df214f1a3968cac1b714693b",
+                "reference": "f7360dac41291982df214f1a3968cac1b714693b",
                 "shasum": ""
             },
             "require": {
+                "erusev/parsedown": "^1.6",
                 "php": ">=5.5",
                 "smarty/smarty": "~3.1"
             },
@@ -84,7 +85,7 @@
                 }
             ],
             "description": "dev",
-            "time": "2016-08-01 11:32:55"
+            "time": "2016-08-05 03:36:03"
         },
         {
             "name": "smarty/smarty",
@@ -92,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "f74a0d575a99bc9b0e307c2698a3756c2ac9fab1"
+                "reference": "04301645d60b08a00c919536640586cf6a8c1573"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/f74a0d575a99bc9b0e307c2698a3756c2ac9fab1",
-                "reference": "f74a0d575a99bc9b0e307c2698a3756c2ac9fab1",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/04301645d60b08a00c919536640586cf6a8c1573",
+                "reference": "04301645d60b08a00c919536640586cf6a8c1573",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +140,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-07-24 18:31:27"
+            "time": "2016-08-04 23:00:51"
         }
     ],
     "packages-dev": [],

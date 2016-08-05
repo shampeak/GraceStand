@@ -9,7 +9,10 @@ ini_set('error_reporting', $error_reporting);
 //error_reporting(0);
 //headers();
 
-App\Bootstrap::run('../App/');
+$class = App\Model\Form::class;
+$res = class_exists($class);
+D($res);
+//App\Bootstrap::run('../App/');
 
 //server()->Help();
 

@@ -3,7 +3,7 @@ namespace App\Controller;
 
 
 class Home extends BaseController {
-    use \App\Traits\ViewSmarty;
+    use \App\Traits\View;
 
     public function __construct(){
         parent::__construct();

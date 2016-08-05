@@ -12,9 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "php" : ">=5.5.9",
-        "erusev/parsedown": "^1.6",
         "grace/server": "dev-master"
-
     },
     "autoload":{
         "files": ["Application/Helper.php"],

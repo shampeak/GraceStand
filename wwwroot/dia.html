@@ -1,0 +1,69 @@
+<h1>jQuery+php上传图片并裁切</h1>
+
+
+<form class="upd" action="/_/index222.php"  method="post"  target="form-target">
+    <input type="file" name="image" size="30" /> 
+    <input type="text" class="form-control" id="exampleInputEmail1" >
+    <input type="button" class="btn btn-primary ___upfile" name="upload" value="Upload" />
+</form>
+<iframe style="width:0; height:0; border:0;" name="form-target"></iframe>
+
+<script type="text/dialog">
+function stopUploadCallback(rel){
+            var msg;
+            switch (rel) {
+                case 0:
+                    msg = "上传成功";
+                    break;
+                case 1:
+                    msg = "上传的文件超过限制";
+                    break;
+                case 2:
+                    msg = "只能上传图片文件";
+                    break;
+                default:
+                    msg = "上传文件失败";
+            }    
+            document.getElementById('processing').innerHTML = msg;
+        }
+
+
+
+$(document).ready(function(){
+	
+	
+	
+	
+	
+	//调用
+	$('.modal_ok').click(function(){
+		//点击确定按钮
+		alert('queding');
+	});
+
+	$('.___upfile').click(function(){
+		var tag = '.upd';
+		
+		$(tag).submit();
+
+	});
+
+			  
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

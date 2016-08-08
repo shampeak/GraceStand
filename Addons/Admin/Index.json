@@ -1,0 +1,17 @@
+{
+    "title":"管理模块",
+    "description":"对所有的addons模块进行管理",
+    "traits":{
+        "document"  : 1,
+        "help"      : 1,
+        "api"       : 1,
+        "install"   : 0,
+        "unstall"   : 0,
+        "unit"      : 0,
+        "log"       : 0,
+        "setup"     : 1,
+        "depend"     : 1,
+        "page"     : 1,
+        "data"     : 1
+    }
+}

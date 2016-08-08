@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30-dev/(88), created on 2016-08-04 15:24:05
+/* Smarty version 3.1.31-dev/1, created on 2016-08-08 14:12:10
   from "E:\phpleague\Grace\GraceStand\App\Views\Home\Index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30-dev/(88)',
-  'unifunc' => 'content_57a2ed957a7c32_32063442',
+  'version' => '3.1.31-dev/1',
+  'unifunc' => 'content_57a822ba9696c2_08630225',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ),false)) {
-function content_57a2ed957a7c32_32063442 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57a822ba9696c2_08630225 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_capitalize')) require_once 'E:\\phpleague\\Grace\\GraceStand\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.capitalize.php';
 if (!is_callable('smarty_modifier_date_format')) require_once 'E:\\phpleague\\Grace\\GraceStand\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php';
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf", "setup", 0);

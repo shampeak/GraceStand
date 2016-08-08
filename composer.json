@@ -17,8 +17,9 @@
     "autoload":{
         "files": ["Application/Helper.php"],
         "psr-4":{
-            "App\\": "App",
-            "Application\\": "Application"
+            "App\\"         : "App",
+            "Addons\\"      : "Addons",
+            "Application\\" : "Application"
         }
     }
 }

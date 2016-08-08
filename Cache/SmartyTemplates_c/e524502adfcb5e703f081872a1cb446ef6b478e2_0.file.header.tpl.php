@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30-dev/(88), created on 2016-08-04 15:24:05
+/* Smarty version 3.1.31-dev/1, created on 2016-08-08 14:12:11
   from "E:\phpleague\Grace\GraceStand\App\Views\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30-dev/(88)',
-  'unifunc' => 'content_57a2ed95b69086_90912559',
+  'version' => '3.1.31-dev/1',
+  'unifunc' => 'content_57a822bb01e198_74491116',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_57a2ed95b69086_90912559 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57a822bb01e198_74491116 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <HTML>
 <HEAD>

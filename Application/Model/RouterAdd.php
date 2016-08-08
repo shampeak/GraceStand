@@ -32,6 +32,7 @@ class RouterAdd
         $arr = explode('/',trim($str,'/'));
         //$arr = \Grace\Req\Uri::getInstance()->getar();
         $beginstr = ucfirst(strtolower($arr[0]));
+        //D($beginstr);
         //是否匹配
         if(in_array($beginstr,$config)){
             return true;

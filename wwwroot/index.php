@@ -21,13 +21,15 @@ ini_set('error_reporting', $error_reporting);
 $res = Addons\Bootstrap::Run();
 
 
+//$res = Addons\Bootstrap::getInstance()->getConfig();
+
+
 
 //Addons\Bootstrap::routerRun('welcome/home/index/pa',['name'=>"irones"]);
 
 //}else{
     //App\Bootstrap::run();
 //}
-
 D($res);
 exit;
 

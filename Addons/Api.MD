@@ -31,8 +31,25 @@ if(Model('RouterAdd')->isAddons()){
 
 
 ## Addons的调用接口
+### 实例化
+Addons\Addons::getInstance();
+Addons\Addons::getInstance()->Router($router,$request)->Run();;
 
+### 两种执行方法
+Addons\Addons::getInstance()->Router($router,$request)->uriRun();   //地址栏进行路由
+Addons\Addons::getInstance()->Router($router,$request)->Run();;
 
+### 中间参数查看
+```
+//config
+Addons\Addons::getInstance()->Router($router)->getConfig();;
+//router
+Addons\Addons::getInstance()->Router($router)->getRouter();;
+//setup
+Addons\Addons::getInstance()->Router($router)->getSetup();;
+//可以被返回的数据
+Addons\Addons::getInstance()->Router($router)->getData();;
+```
 
 
 

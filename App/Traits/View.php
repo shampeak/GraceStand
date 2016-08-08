@@ -17,7 +17,7 @@ trait View{
      * 解析文档数据
      */
     public function View($tpl = '', $data = []){
-
+echo APPROOT;
         $views = server('View')->viewpath(APPROOT.'/Views/')->router(req('Router'));
         $views->display($tpl, $data);
     }

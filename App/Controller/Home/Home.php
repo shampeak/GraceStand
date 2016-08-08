@@ -19,7 +19,11 @@ class Home extends BaseController {
         /*
          * 1 : йсм╪
          */
-        view();
+
+        View();
+
+
+
         exit;
 
     }

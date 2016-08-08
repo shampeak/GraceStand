@@ -1,5 +1,5 @@
 <?php
-namespace App\Addons\Traits;
+namespace Addons\Traits;
 
 /**
  * Created by PhpStorm.
@@ -14,7 +14,9 @@ trait Views{
 
     public function gv()
     {
-        if(empty($this->Views))$this->Views = new \App\Addons\Views();
+
+       //$approot
+        if(empty($this->Views))$this->Views = server('Smarty')->path(\Addons\Bootstrap::getInstance()->approot.req('Router')['module'].'/Views/')->router(req('Router'));
         return $this;
     }
 
@@ -25,12 +27,12 @@ trait Views{
 
     public function display($tpl = '',$data=array()){
         $this->gv();
-        $this->Views->display($tpl,$data);
+        return $this->Views->display($tpl,$data);
     }
 
     public function fetch($tpl = '',$data=array()){
         $this->gv();
-        $this->Views->fetch($tpl,$data);
+        return $this->Views->fetch($tpl,$data);
     }
 
 

@@ -106,11 +106,14 @@ function showAjaxModall(url,title)
 }
 
 
+
+
+
 $(function() {
 	
-       //调用
-//formact 删除 toggle 
-//formsubmit 排序 addnew update
+    //调用
+	//formact 删除 toggle
+	//formsubmit 排序 addnew update
 	$('.formsubmit').click(function(){
 		var tag = $(this).attr("rel");
 		$.ajax({
@@ -158,17 +161,13 @@ $(function() {
 				   alert("异常！");  
 			  }  
 		});
-
 	});
 
-	
 	$(".trigercookie").on('ifClicked', function(event){
 	  var rel = event.currentTarget.attributes.rel.nodeValue;
 	  setc(rel);
 	  location.reload();
 	});		
-	
-	
 	
 	$('.shambox').click(function(){
 		var title = $(this).attr("title")
@@ -180,34 +179,37 @@ $(function() {
 		showAjaxModall($(this).attr("rel"),title)			
 	});
 	
-		//shamcomfirm 标记
-		$('.shamget').click(function(){
-			var url =  $(this).attr("rel");
-			var confirmmsg =  $(this).attr("shamcomfirm");
-			
-			if(confirmmsg !== undefined){
-				//操作确认
-				if (!confirm(confirmmsg)) {
-					return false;
-				}
+	//shamget标记
+	//rel 请求地址
+	//shamcomfirm 标记
+	$('.shamget').click(function(){
+		var url =  $(this).attr("rel");
+		var confirmmsg =  $(this).attr("shamcomfirm");
+
+		if(confirmmsg !== undefined){
+			//操作确认
+			if (!confirm(confirmmsg)) {
+				return false;
 			}
-			$.ajax({ 
-				type: "GET", 
-				url: url, 
-				dataType:'json',
-				success: function(data){ 
-					var JS = data.js;
-					eval(JS);
-					},
-				error : function() {  
-					   alert("异常！");  
-				  }  
-			});
-				
+		}
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType:'json',
+			success: function(data){
+				var JS = data.js;
+				eval(JS);
+				},
+			error : function() {
+				   alert("异常！");
+			  }
 		});
-		
+
+	});
 		
 	//必须参数 根据rel 选定form
+	//shampostform 标记
+	//rel 标记
 	$('.shampostform').click(function(){
 		var tag = $(this).attr("rel");
 		$.ajax({ 
@@ -224,5 +226,5 @@ $(function() {
 			  }  
 		});
 	});
-
+	
 });

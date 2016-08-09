@@ -68,11 +68,7 @@
     if (! function_exists('model')) {
         function model($make = null, $parameters = [])
         {
-
             //首先检查当前model目录中是否存在模型
-
-
-
             if (empty($make)) {
                 return \Application\Model::getInstance();
             }

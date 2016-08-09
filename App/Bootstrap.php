@@ -22,7 +22,7 @@ class Bootstrap
         //set_error_handler(array('\App\Bootstrap', 'customError'));      //自定义错误处理
 
         /*系统级配置*/
-        dc(server()->Config('Config')['Config']);   //建立dc数据流
+        dc(server()->Config('Config'));   //建立dc数据流
 
         $req = server('req');
         $get = $req->get;

@@ -39,8 +39,6 @@
             if (empty($make)) {
                 return null;
             }
-            //控制器模型
-
 
 
             //标准模型
@@ -68,6 +66,14 @@
     if (! function_exists('model')) {
         function model($make = null, $parameters = [])
         {
+
+            //控制器模型
+            $abs = "App\\Model\\".ucfirst($make);
+            if(class_exists($abs)){
+                $ob = new $abs();
+                return $ob;
+            }
+
             //首先检查当前model目录中是否存在模型
             if (empty($make)) {
                 return \Application\Model::getInstance();

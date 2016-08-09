@@ -11,6 +11,8 @@ class Welcome extends BaseController {
 
     public function doIndex()
     {
+        model('form')->run();
+exit;
         View();
     }
 

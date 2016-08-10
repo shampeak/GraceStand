@@ -1,5 +1,6 @@
 <?php
 include("../vendor/autoload.php");
+
 define('APPROOT', '../App/');
 
 //´íÎóÌáÊ¾

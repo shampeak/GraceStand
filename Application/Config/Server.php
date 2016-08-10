@@ -15,6 +15,7 @@ return [
         'Cookies'  => 'Cookies.php',
         'Adminauth'=> 'Adminauth.php',
         'Mmcfile'  => 'Mmcfile.php',
+        'Cache'     => 'Cache.php'
     ],
 
     'Providers'=>[
@@ -24,6 +25,7 @@ return [
         'Db'        => Grace\Db\Db::class,
         'Cookies'   => Grace\Cookies\Cookies::class,
         'Parsedown' => Parsedown::class,
+        'Cache'     => Desarrolla2\Cache\Cache::class
     ],
 
 ];

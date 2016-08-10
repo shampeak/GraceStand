@@ -5,7 +5,7 @@
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_57a9a4d96b9ed6_51121812',
+  'unifunc' => 'content_57a9a4d96ac706_88537207',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:header.tpl' => 1,
   ),
 ),false)) {
-function content_57a9a4d96b9ed6_51121812 (Smarty_Internal_Template $_smarty_tpl) {
+function content_57a9a4d96ac706_88537207 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_capitalize')) require_once 'E:\\phpleague\\Grace\\GraceStand\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.capitalize.php';
 if (!is_callable('smarty_modifier_date_format')) require_once 'E:\\phpleague\\Grace\\GraceStand\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php';
 $_smarty_tpl->smarty->ext->configLoad->_loadConfigFile($_smarty_tpl, "test.conf", "setup", 0);

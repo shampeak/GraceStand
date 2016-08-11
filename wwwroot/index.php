@@ -14,36 +14,7 @@ ini_set('error_reporting', $error_reporting);
 
 
 
+Addons\Bootstrap::run();
 
-
-
-
-
-
-
-
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
-// create a log channel
-$log = new Logger('Stand');
-$log->pushHandler(new StreamHandler('../Cache/Log/log', Logger::WARNING));
-
-// add records to the log
-$log->warning('Foo');
-$log->error('Bar');
-
-
-exit;
-
-
-
-
-
-
-
-
-
-
-App\Bootstrap::run();
+//App\Bootstrap::run();
 

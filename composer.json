@@ -15,10 +15,15 @@
         "grace/server": "dev-master",
         "rmccue/requests": ">=1.0",
         "knplabs/gaufrette": "^0.2.1",
-        "monolog/monolog": "^1.21",
         "twig/twig": "~1.0",
         "doctrine/orm": "*",
         "gabordemooij/redbean": "dev-master"
+    },
+    "require-server": {
+        "erusev/parsedown": "^1.6",
+        "desarrolla2/cache": "~2.0",
+        "smarty/smarty": "v3.1.30",
+        "monolog/monolog": "^1.21"
     },
     "autoload":{
         "files": ["Application/Helper.php"],

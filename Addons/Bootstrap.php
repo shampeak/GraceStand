@@ -25,39 +25,35 @@ class Bootstrap
     | 带参数 和 不带参数
     |--------------------------------------------------------------------------
     */
-    public static function Run($routerstr = '',$request = [])
+    public static function Run()
     {
-        if(empty($routerstr)){
-            $routerar = \Grace\Req\Uri::getInstance()->getar();
-            $routerar[0] = $routerar[0]?:'Welcome';
-            $routerar[1] = $routerar[1]?:'Home';
-            $routerar[2] = $routerar[2]?:'Index';
-            $routerstr = implode('/',$routerar);
-        }
-        $request = $request?:array_merge($_GET, $_POST);
-        if(!Model('RouterAdd')->isAddonsstr($routerstr))    die("error!!");
-        //根据留有字段和request进行调用
-        $res = self::getInstance()->routerRun($routerstr,$request)->RouterRunController();
+
+        $res = self::getInstance()->routerRun();
+
         return $res;
+
     }
 
     /**
      * @param       $routerstr  路由字段
      * @param array $request    request参数
      */
-    public function routerRun($routerstr,$request = [])
+    public function routerRun()
     {
-        dc(server()->Config('Config')['Config']);   //建立dc数据流
-        $this->approot = $approot =  __DIR__.'/';
+        dc(server()->Config('Config'));   //建立dc数据流
+
+        $this->approot = $approot =  __DIR__.'/';       //like           E:\phpleague\Grace\GraceStand\Addons/
+
+        $routerstr =         \Grace\Req\Uri::getInstance()->getar();
 
         //对路由字段进行解析
-        $routerstr = explode('/',trim($routerstr,'/'));
         $module     = $routerstr[0]?:'Welcome';
         $controller = $routerstr[1]?:'Home';
         $mothed     = $routerstr[2]?:'Index';
         $params     = $routerstr[3];
 
         $req = server('req');
+
         req([                   //req 数据模型
             'Get'   => $req->get,
             'Post'  => $req->post,
@@ -73,7 +69,8 @@ class Bootstrap
             ],
         ]);
 
-        return $this;
+        return $this->RouterRunController();
+
     }
 
     public function RouterRunController()

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a5dbb648fc4bc1c2468d936f4801772",
-    "content-hash": "1a631a24c1f9dc71404af3bf3379d810",
+    "hash": "65a0b028e9000812eb79fb2bfccd2b04",
+    "content-hash": "fa47b7f10e336bb9943dae021bfa3254",
     "packages": [
         {
             "name": "desarrolla2/cache",
@@ -746,17 +746,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/shampeak/GraceServer.git",
-                "reference": "db489c29efec73505a3ba6f145988ecd2f0dc462"
+                "reference": "83faf11cbac2830d2eb63f0847d8c85a7b413119"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shampeak/GraceServer/zipball/db489c29efec73505a3ba6f145988ecd2f0dc462",
-                "reference": "db489c29efec73505a3ba6f145988ecd2f0dc462",
+                "url": "https://api.github.com/repos/shampeak/GraceServer/zipball/83faf11cbac2830d2eb63f0847d8c85a7b413119",
+                "reference": "83faf11cbac2830d2eb63f0847d8c85a7b413119",
                 "shasum": ""
             },
             "require": {
                 "desarrolla2/cache": "~2.0",
                 "erusev/parsedown": "^1.6",
+                "monolog/monolog": "^1.21",
                 "php": ">=5.5",
                 "smarty/smarty": "v3.1.30"
             },
@@ -780,7 +781,7 @@
                 }
             ],
             "description": "dev",
-            "time": "2016-08-10 03:37:30"
+            "time": "2016-08-11 09:14:51"
         },
         {
             "name": "knplabs/gaufrette",
@@ -1101,12 +1102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8398292e9c5bacfe4f48208aabaa80b3e67a65a9"
+                "reference": "f82f4744a58cf6846decbdbe29d3d8a1e6bf5d6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8398292e9c5bacfe4f48208aabaa80b3e67a65a9",
-                "reference": "8398292e9c5bacfe4f48208aabaa80b3e67a65a9",
+                "url": "https://api.github.com/repos/symfony/console/zipball/f82f4744a58cf6846decbdbe29d3d8a1e6bf5d6a",
+                "reference": "f82f4744a58cf6846decbdbe29d3d8a1e6bf5d6a",
                 "shasum": ""
             },
             "require": {
@@ -1155,7 +1156,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-30 07:26:43"
+            "time": "2016-08-10 07:06:11"
         },
         {
             "name": "symfony/polyfill-mbstring",

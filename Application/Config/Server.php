@@ -25,7 +25,8 @@ return [
         'Db'        => Grace\Db\Db::class,
         'Cookies'   => Grace\Cookies\Cookies::class,
         'Parsedown' => Parsedown::class,
-        'Cache'     => Desarrolla2\Cache\Cache::class
+//        'Cache'     => Desarrolla2\Cache\Cache::class
+        'Cache'    => Grace\Cache\Cache::class,
     ],
 
 ];

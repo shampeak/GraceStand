@@ -11,12 +11,12 @@ ini_set('error_reporting', $error_reporting);
 
 
 
-if(Model('Gate')->isAddons()){
+//if(Model('Gate')->isAddons()){
     Addons\Bootstrap::run();
-}else{
-    App\Bootstrap::run();
-}
-
+//}else{
+//    App\Bootstrap::run();
+//}
+//
 
 
 

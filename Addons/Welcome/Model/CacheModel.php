@@ -8,7 +8,7 @@
 
 namespace Addons\Model;
 
-class Cache
+class Cache implements \Grace\Base\ModelInterface
 {
 
     public function __construct(){

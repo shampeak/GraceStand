@@ -6,7 +6,7 @@
  * Time: 18:44
  */
 
-namespace App\Addons\Model;
+namespace Addons\Model;
 
 class Cache
 {

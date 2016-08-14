@@ -7,10 +7,10 @@
 
 return [
 
-        'TemplateDir'   => APPROOT.'Views/',
-        'ConfigDir'     => APPROOT.'../Cache/SmartyConfigs/',
-        'CompileDir'    => APPROOT.'../Cache/SmartyTemplates_c/',
-        'CacheDir'      => APPROOT.'../Cache/SmartyCache/',
+        'TemplateDir'   => 'Views/',
+        'ConfigDir'     => '../Cache/SmartyConfigs/',
+        'CompileDir'    => '../Cache/SmartyTemplates_c/',
+        'CacheDir'      => '../Cache/SmartyCache/',
         'debugging'     => false,
         'caching'       => false,
         'cache_lifetime'=> 0

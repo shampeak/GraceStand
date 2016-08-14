@@ -3,18 +3,20 @@ namespace Addons\Controller;
 
 class Home extends BaseController {
 
-    use \Addons\Traits\Views;
 
     public function __construct(){
         parent::__construct();
     }
 
+    public function doIndex_ex()
+    {
+        Model('scan')->Run();
+    }
+
+
     public function doIndex()
     {
-
-
-        $res =  $this->display('uuuu',['name'=>"irones"]);
-
+        view('uuuu',['name'=>"irones"]);
     }
 
 }

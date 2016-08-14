@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class Form
+class Form implements  \Grace\Base\ModelInterface
 {
 
     public function __construct()
@@ -12,6 +12,13 @@ class Form
     public function run()
     {
        echo 'model : form modl run';
+    }
+
+    public function depend()
+    {
+        return [
+            "Model::RouterAdd"
+        ];
     }
 
 }

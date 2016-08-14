@@ -15,7 +15,8 @@ return [
         'Cookies'  => 'Cookies.php',
         'Adminauth'=> 'Adminauth.php',
         'Mmcfile'  => 'Mmcfile.php',
-        'Cache'     => 'Cache.php'
+        'Cache'     => 'Cache.php',
+        'View'      => 'View.php'
     ],
 
     'Providers'=>[

@@ -1,7 +1,8 @@
 <?php
 namespace Application\Model;
 
-class Gate
+
+class Gate implements  \Grace\Base\ModelInterface
 {
     //Model('Gate')->isAddons();
     /*
@@ -13,6 +14,15 @@ class Gate
     {
         return Model('RouterAdd')->isAddons();      //是否addons
     }
+
+    public function depend()
+    {
+        return [
+
+        ];
+    }
+
+
 
 }
 

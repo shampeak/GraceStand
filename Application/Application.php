@@ -7,7 +7,7 @@ namespace Application;
 class Application
 {
 
-
+    use \Application\Traits\ApplicationHelp;
     /*
     * @var null
     * wise单例调用

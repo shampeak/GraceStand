@@ -18,10 +18,6 @@ class Cache
     {
         return 'test';
     }
-    public function run()
-    {
-        return 'test';
-    }
 
 
 }

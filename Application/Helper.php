@@ -21,8 +21,7 @@
     if (! function_exists('view')) {
         function view($tpl = null, $data = [])
         {
-            server('Smarty')->router(req('Router'))->display($tpl,$data);
-
+            server('Smarty')->path(APPROOT.'/Views/')->router(req('Router'))->display($tpl,$data);
 //            $views = server('View')->router(req('Router'));
 //            $views->display($tpl, $data);
         }
@@ -69,6 +68,15 @@
             //首先检查当前model目录中是否存在模型
             if (empty($make)) {
                 return \Application\Model::getInstance();
+            }
+
+            //addons模型
+            if(\Application\Model::getInstance()->make('routerAdd')->isAddons()){
+                $abs = "Addons\\Model\\".ucfirst($make);
+                if(class_exists($abs)){
+                    $ob = new $abs();
+                    return $ob;
+                }
             }
 
             //控制器模型

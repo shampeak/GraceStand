@@ -6,11 +6,16 @@
  * Time: 18:44
  */
 
-namespace App\Addons\Model;
+namespace Addons\Model;
 
 
-class ScanModel
+class Scan
 {
+
+    public function Run()
+    {
+        echo 123;
+    }
 
     public function getFile($path = '')
     {

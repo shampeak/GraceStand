@@ -254,6 +254,103 @@ class Document
         return $list;
     }
 
+
+    //===================================================
+    /**
+     * 文档显示depend关系
+     */
+    public function modellist()
+    {
+
+        /**
+         * 计算模块之间的depend
+         * 穷举模块名
+         */
+//application
+        $path = '../Application/Model/';
+        $dirall = scandir($path);
+        foreach($dirall as $v) {
+            if ($v != '.' && $v != '..') {
+                if(substr($v,-4) == '.php') $list[] = substr($v,0,strlen($v)-4);
+            }
+        }
+//model
+        $path = '../App/Model/';
+        $dirall = scandir($path);
+        foreach($dirall as $v) {
+            if ($v != '.' && $v != '..') {
+                if(substr($v,-4) == '.php') $list[] = substr($v,0,strlen($v)-4);
+            }
+        }
+        return $list;
+    }
+
+    public function depend(){
+        $list = $this->modellist();
+
+        foreach($list as $modelname){
+            $depend['Model::'.$modelname] = model($modelname)->depend();
+        }
+
+//计算base depend     //basedepend 为application / db
+
+//D($depend);
+
+        $dependlevel50 = $dependlevel100 = $dependlevel1 = $dependlevel0 = [];
+//第一遍运算
+//$dependlevel0     //依赖server 和application
+//$dependlevel1     //无依赖
+        foreach($depend as $key=>$value){
+            $dependlevel100[] = $key;               //所有模型
+            $dependlevel50 = array_merge($dependlevel50,$value);            //所有被依赖
+            //对key进行计算
+            if(empty($depend[$key])){
+                $dependlevel1[] = $key;             //无依赖
+            }else{
+                foreach($value as $v){
+                    if(substr($v,0,6)=='Server' || substr($v,0,11)=='Application'){
+                        $dependlevel0[] = $v;       //被依赖 app 和 server
+                    }
+                }
+            }
+        }
+
+//计算level2
+        $dependlevel2 = [];
+        foreach($depend as $key=>$value){
+            if(empty(array_diff($value,$dependlevel0,$dependlevel1))){
+                $dependlevel2[] = $key;
+            }
+        }
+        $dependlevel2 = array_diff($dependlevel2,$dependlevel0,$dependlevel1);
+
+//D($dependlevel0);       //server application
+//D($dependlevel1);       //无依赖
+//D($dependlevel2);       //level2          //依赖于 0 和 1     //有可能是top
+//D($dependlevel50);      //所有被依赖
+//D($dependlevel100);     //所有模型
+        $dependlevel99 = array_diff($dependlevel100,$dependlevel50,$dependlevel1);      //top模型
+        $dependlevel2 = array_diff($dependlevel2,$dependlevel99);                       //level2 去除 top
+        $dependlevel50 = array_diff($dependlevel50,$dependlevel0,$dependlevel1,$dependlevel2);                       //level2 去除 top
+
+//模型关系OK
+
+        $tpl = \Grace\Base\Help::getpldepend();
+        $html = str_replace('##title##','依赖关系',$tpl);
+        $html = str_replace('##Level0##','<pre>'.print_r($dependlevel0,true).'</pre>',$html);
+        $html = str_replace('##Level1##','<pre>'.print_r($dependlevel1,true).'</pre>',$html);
+        $html = str_replace('##Level2##','<pre>'.print_r($dependlevel2,true).'</pre>',$html);
+        $html = str_replace('##Level50##','<pre>'.print_r($dependlevel50,true).'</pre>',$html);
+        $html = str_replace('##Level99##','<pre>'.print_r($dependlevel99,true).'</pre>',$html);
+        $html = str_replace('##Level100##','<pre>'.print_r($dependlevel100,true).'</pre>',$html);
+
+        echo $html;
+        exit;
+
+
+    }
+
+
 }
 
 

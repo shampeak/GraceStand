@@ -26,15 +26,17 @@ class Demo extends BaseController {
 
     public function doIndex()
     {
-        echo '/demo/index';
-        echo "<pre>";
-        print_r("
-/ds/index
-/ds/index/ex
-/ds/view
-/ds/smarty
-        ");
-        echo "</pre>";
+//        D(req());
+//        echo '/demo/index';
+//        echo "<pre>";
+//        print_r("
+///ds/index
+///ds/index/ex
+///ds/view
+///ds/smarty
+//        ");
+//        echo "</pre>";
+        view();
     }
 
 

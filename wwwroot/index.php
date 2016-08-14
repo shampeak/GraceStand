@@ -1,7 +1,6 @@
 <?php
 include("../vendor/autoload.php");
 
-define('APPROOT', '../App/');
 
 //错误提示
 $error_reporting       = E_ALL ^ E_NOTICE;
@@ -9,14 +8,15 @@ ini_set('error_reporting', $error_reporting);
 
 
 
+if(\Application\Model::getInstance()->make('routerAdd')->isAddons()){
+    define('APPROOT', '../Addons/'.(Model('RouterAdd')->getModulechr()).'/');
 
-
-//if(Model('Gate')->isAddons()){
     Addons\Bootstrap::run();
-//}else{
-//    App\Bootstrap::run();
-//}
-//
+}else{
+    define('APPROOT', '../App/');
+    App\Bootstrap::run();
+
+}
 
 
 

@@ -1,7 +1,7 @@
 <?php
 namespace Application\Model;
 
-class Test
+class Test implements  \Grace\Base\ModelInterface
 {
 
     /*
@@ -13,6 +13,15 @@ class Test
     {
         echo 123123123;
     }
+
+    public function depend()
+    {
+        return [
+            "Model::Gate"
+        ];
+    }
+
+
 
 }
 

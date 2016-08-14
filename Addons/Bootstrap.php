@@ -1,6 +1,24 @@
 <?php
 namespace Addons;
 
+
+//psr0
+function autoload($className)
+{
+    $className = ltrim($className, '\\');
+    $fileName  = '';
+    if(substr($className,0,12) == 'Addons\Model'){
+        if ($lastNsPos = strrpos($className, '\\')) {
+            $className = substr($className, $lastNsPos + 1);
+            $fileName  = APPROOT.'Model' . DIRECTORY_SEPARATOR;
+        }
+        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+        require $fileName;
+    }
+}
+spl_autoload_register('Addons\autoload');
+
+
 class Bootstrap
 {
     private $_config            = array();
@@ -18,13 +36,7 @@ class Bootstrap
         return self::$_instance;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Ö´ÐÐ
-    | Á½ÖÖÖ´ÐÐÄ£Ê½
-    | ´ø²ÎÊý ºÍ ²»´ø²ÎÊý
-    |--------------------------------------------------------------------------
-    */
+
     public static function Run()
     {
 
@@ -34,19 +46,15 @@ class Bootstrap
 
     }
 
-    /**
-     * @param       $routerstr  Â·ÓÉ×Ö¶Î
-     * @param array $request    request²ÎÊý
-     */
+
     public function routerRun()
     {
-        dc(server()->Config('Config'));   //½¨Á¢dcÊý¾ÝÁ÷
+        dc(server()->Config('Config'));
 
         $this->approot = $approot =  __DIR__.'/';       //like           E:\phpleague\Grace\GraceStand\Addons/
 
         $routerstr =         \Grace\Req\Uri::getInstance()->getar();
 
-        //¶ÔÂ·ÓÉ×Ö¶Î½øÐÐ½âÎö
         $module     = $routerstr[0]?:'Welcome';
         $controller = $routerstr[1]?:'Home';
         $mothed     = $routerstr[2]?:'Index';
@@ -54,7 +62,7 @@ class Bootstrap
 
         $req = server('req');
 
-        req([                   //req Êý¾ÝÄ£ÐÍ
+        req([                   //req ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
             'Get'   => $req->get,
             'Post'  => $req->post,
             'Env'   => $req->env,
@@ -68,7 +76,6 @@ class Bootstrap
                 'Prefix'    => 'do',
             ],
         ]);
-
         return $this->RouterRunController();
 
     }
@@ -77,10 +84,8 @@ class Bootstrap
     {
         $router = req('Router');
 
-        //¿ØÖÆÆ÷¸ùÄ¿Â¼
         $basepath =        $this->approot.$router['module'].'/Controller/';
 
-//Â·ÓÉÊý¾ÝºÏ·¨ÐÔ¼ì²é
         if (!preg_match('/^[0-9a-zA-Z]+$/',$router['controller']) || !preg_match('/^[0-9a-zA-Z]+$/',$router['mothed']))
         {
             halt('router error1');
@@ -89,25 +94,17 @@ class Bootstrap
         {
             halt('router error2');
         }
-        $params = $router['params'];                                              //²ÎÊý
+        $params = $router['params'];                                              //ï¿½ï¿½ï¿½ï¿½
 
-        /*
-         * ÕâÁ½¸öÓÐ¿ÉÄÜ³ÉÎªÎÄ¼þµ¥¶À´æÔÚ,²¢ÇÒ¼ÓÔØ
-         * */
-//¿ØÖÆÆ÷Ãû just
         $_controller    = $router['controller'];
 
-//·½·¨Ãû just
         $_mothed       = $router['mothed'];
 
-//·½·¨_Ö´ÐÐ
         $__mothedAction     = ($router['type'] == 'GET')?($router['Prefix'].$router['mothed']):($router['Prefix'].$router['mothed'].ucfirst(strtolower($router['type'])));
         $__mothedActionbk   = ($router['type'] == 'GET')?($router['Prefix'].$router['mothed'].'_'.$params):($router['Prefix'].$router['mothed'].'_'.$params.ucfirst(strtolower($router['type'])));
 
-//¿ØÖÆÆ÷_Ö´ÐÐ
         $__controllerAction = '\Addons\Controller\\'.$router['controller'];
 
-//¼ÓÔØ»ùÀà - Èç¹û»ùÀà´æÔÚ,Ôò¼ÓÔØ
         $file = $basepath.$_controller.'/BaseController.php';
         includeIfExist($file);
 
@@ -117,29 +114,23 @@ class Bootstrap
         $_file[] = $file;
 
         if(!method_exists($__controllerAction, $__mothedActionbk) && !method_exists($__controllerAction, $__mothedAction)) {
-            //Ã»ÓÐÑ°ÕÒµ½,³¢ÊÔ controller/controller.php
             $file = $basepath.$_controller.'/'.$_controller.'.php';
             $_file[] = $file;
             includeIfExist($file);
         }
 
-//Èç¹û»¹Ã»ÓÐ
-//±¨´íÀ²
         if(!method_exists($__controllerAction, $__mothedActionbk) && !method_exists($__controllerAction, $__mothedAction)) {
-            //Ã»ÓÐÕÒµ½Ö´ÐÐ·½·¨
-            //Ö´ÐÐ404;
             echo 'Miss file : <br>',$__controllerAction,'::'.$__mothedAction;
             echo '<br>or : ',$__controllerAction,'::'.$__mothedActionbk;
             D($_file);
         }
 
-//ÊµÀý»¯
         $controller = new $__controllerAction();
 
         if(method_exists($__controllerAction, $__mothedActionbk)) {
-            return $controller->$__mothedActionbk($params);         //Ö´ÐÐ·½·¨
+            return $controller->$__mothedActionbk($params);
         }else{
-            return $controller->$__mothedAction($params);         //Ö´ÐÐ·½·¨
+            return $controller->$__mothedAction($params);
         }
 
     }

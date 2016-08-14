@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'root'    => APPROOT.'Addons/',
-    'list'      =>
+    'list'      => [
+        'welcome'
+    ]
 
 
 ];
